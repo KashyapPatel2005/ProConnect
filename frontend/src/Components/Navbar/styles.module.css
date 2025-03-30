@@ -1,0 +1,111 @@
+.container{
+    padding:0.9rem;
+    background:#fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:1;
+    
+}
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+
+}
+.navBarOptionContainer{
+    display: flex;
+
+}
+
+.buttonJoin{
+    width: fit-content;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+    /* margin-top: 1.5rem; */
+    font-size: 1.4rem;
+    color: white;
+    background-color: rgb(128, 128, 234);
+    padding-inline: 1.2rem;
+    padding-block: 0.4rem;
+    
+}
+
+.buttonJoin:hover{
+    background-color: rgb(154, 154, 231);
+}
+
+
+
+
+
+
+/* navbar css temporary */
+
+/* Navbar Right Section */
+.navbarRight {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Welcome Text */
+  .welcome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Profile Option */
+  .profileOption {
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #007bff;
+    transition: 0.3s;
+  }
+  
+  .profileOption:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Logout Option */
+  .logoutOption {
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ff4d4d;
+    transition: 0.3s;
+  }
+  
+  .logoutOption:hover {
+    color: #cc0000;
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbarRight {
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 8px 15px;
+    }
+  
+    .welcome {
+      font-size: 1rem;
+    }
+  
+    .profileOption,
+    .logoutOption {
+      font-size: 1rem;
+    }
+  }
+  

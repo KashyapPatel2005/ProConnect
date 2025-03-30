@@ -1,0 +1,359 @@
+/* 🔹 Scrollable Component */
+/* .scrollComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10%;
+
+} */
+
+.scrollComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10%;
+    
+
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 80%;
+}
+
+/* 🔹 Post Creation Container */
+.createPostContainer {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s ease-in-out;
+   
+}
+
+.userProfile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+/* 🔹 Text Area */
+.textAreaOfContent {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    resize: none;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f1f1f1;
+    transition: 0.3s;
+}
+
+.textAreaOfContent:focus {
+    background: #e8f0fe;
+}
+
+/* 🔹 Upload Button */
+.uploadButton {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.4s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.uploadButton:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* 🔹 Floating Upload Icon */
+.Fab {
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Fab:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* 🔹 Post Display Container */
+.postContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 🔹 Single Post Card */
+.singleCard {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.singleCard:hover {
+    transform: translateY(-4px);
+}
+
+/* 🔹 Post Profile Info */
+.singleCard_profileContainer {
+    display: flex;
+    gap: 12px;
+}
+
+.singleCard_profileContainer img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+/* 🔹 Post Username Styling */
+.singleCard_profileContainer p:first-child {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.singleCard_profileContainer p:last-child {
+    color: grey;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        max-width: 90%;
+    }
+
+    .createPostContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .textAreaOfContent {
+        width: 100%;
+    }
+}
+
+
+.singleCard_image{
+    width: 100%;
+    padding-top: 0.6rem;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.singleCard_image > img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+
+.optionsContainer{
+    display: flex;
+    height: 20%;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    
+}
+.singleOption_optionsContainer{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.singleOption_optionsContainer > svg{
+    height: 100%;
+    width: 25%;
+}
+
+
+.commentsContainer{
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    z-index: 2;
+    background:rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.allCommentsContainer{
+    width: 40vw;
+    height: 80vh;
+    background: white;
+    border-radius: 10px;
+    /* position:relative; */
+    padding: 1.4rem;
+    overflow: scroll;
+}
+
+
+
+/* .postCommentContainer{
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+} */
+
+.postCommentContainer{
+    position: absolute;
+    width: 40%;
+    bottom: 0;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+
+
+.postCommentContainer > input{
+    flex: 0.9;
+    padding-inline: 1.5rem;
+    padding-block: 1.2rem;
+    border: none;
+    background:rgb(228,228,228);
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.postCommentContainer > input:focus{
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.postCommentContainer_commentBtn{
+    flex:0.1;
+    width: fit-content;
+    padding: 1rem;
+    background:rgb(236, 183, 84);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+/* Comment section code */
+
+
+.singleComment {
+    background: #ffffff; /* White background */
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .singleComment:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Profile Section */
+  .singleComment_profileContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .singleComment_profileContainer img {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+  }
+  
+  .singleComment_profileContainer div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .singleComment_profileContainer p {
+    margin: 0;
+    color: #333;
+  }
+  
+  .singleComment_profileContainer p:first-child {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .singleComment_profileContainer p:nth-child(2) {
+    color: gray;
+    font-size: 0.9rem;
+  }
+  
+  /* Comment Body */
+  .singleComment div:last-child p {
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+  }
+  
+
