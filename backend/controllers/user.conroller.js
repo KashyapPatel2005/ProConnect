@@ -6,36 +6,73 @@ import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 import PDFDocument from 'pdfkit'
 import fs from 'fs'
+import path from 'path';
 import { isFunction } from "util";
 
-const convertUserDataTOPDF = async(userData)=>{
+// const convertUserDataTOPDF = async(userData)=>{
+//     const doc = new PDFDocument();
+
+//     const outputPath = crypto.randomBytes(12).toString('hex') + '.pdf';
+//     const stream = fs.createWriteStream("uploads/" + outputPath );
+
+//     doc.pipe(stream);
+//     doc.image(`uploads/${userData.userId.profilePicture}`, {    fit: [80, 80],  // Resizing image
+//         x: 450,         // Move to the right side
+//         y: 50           // Position near the top
+//     })
+//     doc.fontSize(14).text(`Name: ${userData.userId.name}`);
+//     doc.fontSize(14).text(`Email: ${userData.userId.email}`);
+//     doc.fontSize(14).text(`Username: ${userData.userId.username}`);
+//     doc.fontSize(14).text(`Bio: ${userData.bio}`);  
+//     doc.fontSize(14).text(`Current Post: ${userData.currentPost}`);
+    
+//     doc.fontSize(14).text("Past Work: ");
+//     userData.pastWork.forEach((work,index)=>{
+//         doc.fontSize(14).text(`Company: ${work.company}`);  
+//         doc.fontSize(14).text(`Position: ${work.position}`);
+//         doc.fontSize(14).text(`Years: ${work.years}`);
+//     })
+
+//     doc.end();
+
+//     return outputPath;
+
+// }
+
+
+const convertUserDataTOPDF = async (userData) => {
     const doc = new PDFDocument();
-
     const outputPath = crypto.randomBytes(12).toString('hex') + '.pdf';
-    const stream = fs.createWriteStream("uploads/" + outputPath );
-
+    const stream = fs.createWriteStream("uploads/" + outputPath);
     doc.pipe(stream);
-    doc.image(`uploads/${userData.userId.profilePicture}`, {    fit: [80, 80],  // Resizing image
-        x: 450,         // Move to the right side
-        y: 50           // Position near the top
-    })
+
+    const imagePath = `uploads/${userData.userId.profilePicture}`;
+    if (fs.existsSync(imagePath)) {
+        const ext = path.extname(imagePath).toLowerCase();
+        if (ext === '.png' || ext === '.jpg' || ext === '.jpeg') {
+            doc.image(imagePath, { fit: [80, 80], x: 450, y: 50 });
+        } else {
+            console.log("Unsupported image format:", ext);
+        }
+    } else {
+        console.log("Image file not found:", imagePath);
+    }
+
     doc.fontSize(14).text(`Name: ${userData.userId.name}`);
     doc.fontSize(14).text(`Email: ${userData.userId.email}`);
     doc.fontSize(14).text(`Username: ${userData.userId.username}`);
-    doc.fontSize(14).text(`Bio: ${userData.bio}`);  
+    doc.fontSize(14).text(`Bio: ${userData.bio}`);
     doc.fontSize(14).text(`Current Post: ${userData.currentPost}`);
-    
-    doc.fontSize(14).text("Past Work: ");
-    userData.pastWork.forEach((work,index)=>{
-        doc.fontSize(14).text(`Company: ${work.company}`);  
+    doc.fontSize(14).text("Past Work:");
+
+    userData.pastWork.forEach((work) => {
+        doc.fontSize(14).text(`Company: ${work.company}`);
         doc.fontSize(14).text(`Position: ${work.position}`);
         doc.fontSize(14).text(`Years: ${work.years}`);
-    })
+    });
 
     doc.end();
-
     return outputPath;
-
 }
 
 
