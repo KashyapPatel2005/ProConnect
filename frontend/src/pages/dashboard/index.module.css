@@ -228,11 +228,11 @@
 
 
 .allCommentsContainer{
+    margin-top: 1.5rem;
     width: 40vw;
-    height: 80vh;
+    height: 75vh;
     background: white;
     border-radius: 10px;
-    /* position:relative; */
     padding: 1.4rem;
     overflow: scroll;
 }

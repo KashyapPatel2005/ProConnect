@@ -59,7 +59,7 @@ export default function DashboardLayout({ children }) {
               {children}
             </div>
 
-
+{/* 
           <div className={styles.homeContainer_extraContainer}>
             
 
@@ -70,7 +70,7 @@ export default function DashboardLayout({ children }) {
                     </div>
                 );
             })}
-          </div>
+          </div> */}
 
         </div> 
       </div>

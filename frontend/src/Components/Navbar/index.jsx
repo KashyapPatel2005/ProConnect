@@ -12,53 +12,65 @@ function NavbarComponent() {
     const authState = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
-
+    const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className={styles.container}>
         <nav className={styles.navBar}>
             <h1 style={{cursor:"pointer"}}>PRO CONNECT</h1>
             
+            {/* <div className={styles.navBarOptionContainer}>
+              {authState.profileFetched && <div>
+                <div className={styles.navbarRight} >
+                  <p className={styles.welcome} > Hey, {authState.user.userId.name}</p>
+                  <p onClick={()=>{
+                    router.push("/profile")
+                  }} className={styles.profileOption} >Pofile</p>
+                  <p className={styles.logoutOption}  onClick={()=>{
+                    localStorage.removeItem("token");
+                    router.push("/");
+                    dispatch(reset())
+                  }} >Logout</p>
+                </div>
+                </div>
+              } 
+            </div> */}
+
+
             <div className={styles.navBarOptionContainer}>
+              {authState.profileFetched && (
+                <div>
+                  {/* Hamburger Menu Icon */}
+                  <div className={styles.menuIcon} onClick={() => setMenuOpen(!menuOpen)}>
+                    ☰
+                  </div>
 
+                  {/* Right Nav Menu (Visible on Large Screens or When Menu is Open) */}
+                  <div
+                    className={`${styles.navbarRight} ${menuOpen ? styles.showMenu : ""}`}
+                  >
+                    <p className={styles.welcome}>Hey, {authState.user.userId.name}</p>
 
-            {/* {authState.profileFetched && <div>
-              <div style={{display:"flex",gap:"1.2rem"}}>
-                <p> Hey, {authState.user.userId.name}</p>
-                <p style={{fontWeight:"bold",cursor:"pointer"}}>Pofile</p>
-                <p  onClick={()=>{
-                  localStorage.removeItem("token");
-                  router.push("/");
-                  dispatch(reset())
-                }} style={{fontWeight:"bold",cursor:"pointer"}}>Logout</p>
-              </div>
-            </div>} */}
+                    <p
+                      className={styles.profileOption}
+                      onClick={() => router.push("/profile")}
+                    >
+                      Profile
+                    </p>
 
-            {authState.profileFetched && <div>
-              <div className={styles.navbarRight} >
-                <p className={styles.welcome} > Hey, {authState.user.userId.name}</p>
-                <p onClick={()=>{
-                  router.push("/profile")
-                }} className={styles.profileOption} >Pofile</p>
-                <p className={styles.logoutOption}  onClick={()=>{
-                  localStorage.removeItem("token");
-                  router.push("/");
-                  dispatch(reset())
-                }} >Logout</p>
-              </div>
-
-             
-            </div>
-            } 
-
-
-            {/* {!authState.profileFetched &&  <div onClick={()=>{
-              router.push("/login");
-            }} className={styles.buttonJoin}>
-              <p>Be A Part</p>
-            </div>} */}
-           
-
+                    <p
+                      className={styles.logoutOption}
+                      onClick={() => {
+                        localStorage.removeItem("token");
+                        router.push("/");
+                        dispatch(reset());
+                      }}
+                    >
+                      Logout
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
         </nav>

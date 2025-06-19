@@ -52,7 +52,24 @@
     font-size: 1rem;
     color: #666;
   }
-  
+  .searchInput {
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #ccc;
+  width: 90%;
+  max-width: 400px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-family: 'Poppins', sans-serif;
+}
+
+.searchInput:focus {
+  border-color: #0366d6;
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.2);
+}
+
   /* Responsive Design */
   @media (max-width: 768px) {
     .userCard {

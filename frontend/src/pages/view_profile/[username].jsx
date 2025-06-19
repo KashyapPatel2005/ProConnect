@@ -10,8 +10,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '@/config/redux/action/postAction';
 import { getConnectionRequest, getMyConnectionRequests, sendConnectionRequest } from '@/config/redux/action/authAction';
 
+import { io } from "socket.io-client";
+
+const socket = io.connect("http://localhost:3000");
 
 export default function ViewProfilePage({userProfile}) {
+
+   const joinRoom = () => {
+    if (username !== "" && room !== "") {
+      socket.emit("join_room", room);
+      setShowChat(true);
+    }
+  };
+
 
     const searchParamers = useSearchParams();
 

@@ -1,4 +1,4 @@
-.container{
+/* .container{
     padding: 1.4rem;
     background:rgb(251, 247, 247);
     margin-top:10%;
@@ -88,4 +88,170 @@
     padding-block: 1rem;
     border-radius: 10px;
     box-shadow: 10px 10px 10px rgb(173,173,173);
+} */
+
+
+
+
+.container {
+    padding: 1.4rem;
+    background: rgb(251, 247, 247);
+    margin-top: 10%;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.backDropContainer {
+    width: 100%;
+    height: 30vh;
+    background: url("https://t4.ftcdn.net/jpg/06/31/31/59/360_F_631315988_31FMZC4kDYijIJzsxNQivlotI4QGeHow.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 20px;
+}
+
+.backDropContainer img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    bottom: -30%;
+    left: 5%;
+    border: 3px solid white;
+}
+
+.profileContainer_details {
+    padding-top: 5.6rem;
+}
+
+/* Layout of profile and post section */
+.profileContainer_details > div {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+/* Profile section */
+.profileContainer_details > div > div:first-child {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Welcome, connect, bio section */
+.profileContainer_details h1 {
+    font-size: 1.8rem;
+}
+.profileContainer_details p {
+    font-size: 1rem;
+}
+
+/* Card section */
+.card {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+.card_profileContainer {
+    display: flex;
+}
+.card_profileContainer img {
+    width: 3.4rem;
+    height: 3.4rem;
+    object-fit: cover;
+}
+
+.connectBtn, .connectedButton {
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.connectBtn {
+    background: rgba(3, 93, 183, 0.905);
+    color: white;
+    border: none;
+}
+.connectedButton {
+    border: 1px solid blue;
+    color: blue;
+    background: white;
+}
+
+.workHistory {
+    margin-top: 2rem;
+}
+
+.workHistoryContainer {
+    display: flex;
+    gap: 1.4rem;
+    padding-top: 1.4rem;
+    flex-wrap: wrap;
+}
+
+.workHistoryCard {
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(173, 173, 173);
+    min-width: fit-content;
+}
+
+/* -------------------------- */
+/* ✅ Responsive Styles Below */
+/* -------------------------- */
+
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0.5rem;
+        padding: 1rem;
+    }
+
+    .backDropContainer {
+        height: 25vh;
+    }
+
+    .backDropContainer img {
+        width: 6em;
+        height: 6em;
+        bottom: -25%;
+        left: 4%;
+    }
+
+    .profileContainer_details > div {
+        flex-direction: column;
+    }
+
+    .connectBtn, .connectedButton {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .workHistoryContainer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .workHistoryCard {
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 5px 5px 10px rgb(190, 190, 190);
+    }
+
+    .profileContainer_details h1 {
+        font-size: 1.5rem;
+    }
+
+    .profileContainer_details p {
+        font-size: 0.95rem;
+    }
 }

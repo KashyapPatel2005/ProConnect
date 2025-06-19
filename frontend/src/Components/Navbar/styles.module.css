@@ -1,111 +1,133 @@
-.container{
-    padding:0.9rem;
-    background:#fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index:1;
-    
-}
-.navBar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1rem;
-
-}
-.navBarOptionContainer{
-    display: flex;
-
+/* === NAVBAR STYLING === */
+.container {
+  padding: 1.5rem 1rem;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
-.buttonJoin{
-    width: fit-content;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s;
-    /* margin-top: 1.5rem; */
-    font-size: 1.4rem;
-    color: white;
-    background-color: rgb(128, 128, 234);
-    padding-inline: 1.2rem;
-    padding-block: 0.4rem;
-    
-}
-
-.buttonJoin:hover{
-    background-color: rgb(154, 154, 231);
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* allows wrapping */
 }
 
 
+/* Be A Part button */
+.buttonJoin {
+  width: fit-content;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+  font-size: 1.4rem;
+  color: white;
+  background-color: rgb(128, 128, 234);
+  padding-inline: 1.2rem;
+  padding-block: 0.4rem;
+  border-radius: 6px;
+  margin-left: 1rem;
+}
+
+.buttonJoin:hover {
+  background-color: rgb(154, 154, 231);
+}
+
+
+.logoutOption:hover {
+  color: #cc0000;
+  text-decoration: underline;
+}
 
 
 
+.navBarOptionContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: #fff;
+  position: relative;
+}
 
-/* navbar css temporary */
+.menuIcon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+}
 
-/* Navbar Right Section */
 .navbarRight {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1rem;
+}
+
+.welcome {
+  font-weight: bold;
+}
+
+.profileOption,
+.logoutOption {
+  cursor: pointer;
+  color: #00488b;
+  transition: 0.3s;
+}
+
+.profileOption:hover,
+.logoutOption:hover {
+  text-decoration: underline;
+}
+
+/* 🔽 Responsive Styles */
+@media (max-width: 768px) {
+  .menuIcon {
+    display: block;
+  }
+
+  .navbarRight {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 1rem;
+    top: 3rem;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    z-index: 999;
+  }
+
+  .showMenu {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
-  /* Welcome Text */
+}
+
+
+/* === RESPONSIVE MEDIA QUERIES === */
+@media (max-width: 768px) {
+  .navbarRight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 10px;
+    box-shadow: none;
+  }
+
   .welcome {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 1rem;
   }
-  
-  /* Profile Option */
-  .profileOption {
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: #007bff;
-    transition: 0.3s;
-  }
-  
-  .profileOption:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  
-  /* Logout Option */
+
+  .profileOption,
   .logoutOption {
+    font-size: 1rem;
+  }
+
+  .buttonJoin {
     font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: #ff4d4d;
-    transition: 0.3s;
+    padding-inline: 1rem;
   }
-  
-  .logoutOption:hover {
-    color: #cc0000;
-    text-decoration: underline;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .navbarRight {
-      flex-direction: column;
-      gap: 0.8rem;
-      padding: 8px 15px;
-    }
-  
-    .welcome {
-      font-size: 1rem;
-    }
-  
-    .profileOption,
-    .logoutOption {
-      font-size: 1rem;
-    }
-  }
-  
+}

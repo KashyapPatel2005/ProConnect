@@ -74,7 +74,7 @@ function Dashboard() {
                   return (
                     <div key={post._id} className={styles.singleCard}>
                       <div className={styles.singleCard_profileContainer}>
-                          <img  src={`${BASE_URL}/${authState.user.userId.profilePicture}`} alt="" />
+                          <img  src={`${BASE_URL}/${post.userId.profilePicture}`} alt="" />
                           <div>
                             <div style={{display:"flex",justifyContent:"space-between"}}>
                                 <p style={{fontWeight:"bold"}}>{post.userId.name}</p>
@@ -184,6 +184,7 @@ function Dashboard() {
                   <div onClick={async ()=>{
                     await dispatch(postComment({post_id: postState.postId,body: commentText}))
                     await dispatch(getAllComments({post_id: postState.postId}))
+                    setCommentText("");
                   }} className={styles.postCommentContainer_commentBtn} >
                     <p>Comment</p>
 
