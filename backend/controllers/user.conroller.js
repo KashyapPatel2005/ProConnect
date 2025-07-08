@@ -84,7 +84,7 @@ export const register = async (req,res)=>{
         const {name,email,password,username} = req.body;
         
         if(!name || !email || !password || ! username){
-            return res.status(400).json({message:"All fields are required"});
+            return res.status(400).json({message:"All fields are must required"});
         }
 
         const user = await User.findOne({
